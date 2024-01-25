@@ -2,7 +2,7 @@
   "name": "frnt-ts10-struct-ts-final-work",
   "version": "1.0.0",
   "description": "Работа со структурами данных на языке TypeScript - Финальная работа",
-  "main": "index.js",
+  "main": "./app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

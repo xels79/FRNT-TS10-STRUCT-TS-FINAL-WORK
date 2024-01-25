@@ -12,8 +12,7 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 
 const config = {
-    entry: './src/index.ts',
-    mode:'development',
+    entry: './app/index.ts',
     devtool:'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
