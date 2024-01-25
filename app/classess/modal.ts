@@ -1,4 +1,4 @@
-export default class Modal {
+export class Modal {
     public static modals: Modal[] = [];  // массив всех экземпляров класса Modal;
     public static idCounter = 0;
     private domEL: Element;

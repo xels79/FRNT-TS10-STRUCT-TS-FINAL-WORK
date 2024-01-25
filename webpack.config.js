@@ -12,44 +12,84 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 
 const config = {
-    entry: './app/index.ts',
-    devtool:'source-map',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
+    devServer: {
+        static: {
+            directory: path.join(__dirname, '/'),
+        },
+        compress: true,
+        port: 9000,
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
-        }),
-
-        new MiniCssExtractPlugin(),
-
-        // Add your plugins here
-        // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+        template: "./pageTemplates/index/index.html",
+        inject: true,
+        chunks: ['index'],
+        filename: 'index.html'
+    }),
+        new HtmlWebpackPlugin({
+            template: "./pageTemplates/ticket/index.html",
+            inject: true,
+            chunks: ['ticket'],
+            filename: 'ticket.html'
+        })
     ],
+    entry: {
+        index : './app/index.ts',
+        ticket: './app/pages/tickets/tickets.ts'
+    },
     module: {
         rules: [
             {
-                test: /\.(ts|tsx)$/i,
-                loader: 'ts-loader',
-                exclude: ['/node_modules/'],
+                test: /\.(png|jp?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            publicPath: '/img/',
+                            name: '[name].[ext]'
+                        }
+                    },
+
+
+
+
+                ]
+
             },
             {
-                test: /\.css$/i,
-                use: [stylesHandler, 'css-loader', 'postcss-loader'],
-            },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-                type: 'asset',
+
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
 
-            // Add your rules for custom modules here
-            // Learn more about loaders from https://webpack.js.org/loaders/
+            {
+                test: /\.(scss|css)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+        alias: {
+            '@rest': path.resolve(__dirname, './app/services/rest/'),
+            '@services': path.resolve(__dirname, './app/services/'),
+            '@assets': path.resolve(__dirname, './app/assets/'),
+            "@myCss":  path.resolve(__dirname, './app/assets/styles/main.scss'),
+        },
+
+        extensions: ['.tsx', '.ts', '.js', '.scss', '.css'],
     },
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/dist',
+        clean: true,
+    },
+
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    }
 };
 
 module.exports = () => {

@@ -4,7 +4,9 @@
   "description": "Работа со структурами данных на языке TypeScript - Финальная работа",
   "main": "./app/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "serve": "webpack  serve --mode development --open --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -16,19 +18,30 @@
     "url": "https://github.com/xels79/FRNT-TS10-STRUCT-TS-FINAL-WORK/issues"
   },
   "homepage": "https://github.com/xels79/FRNT-TS10-STRUCT-TS-FINAL-WORK#readme",
+  "dependencies": {
+    "@tsconfig/node16": "^1.0.3"
+  },
   "devDependencies": {
     "@webpack-cli/generators": "^3.0.7",
+    "@types/webpack-env": "^1.18.0",
+    "html-loader": "^4.1.0",
     "autoprefixer": "^10.4.16",
     "css-loader": "^6.9.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.33",
     "postcss-loader": "^7.3.4",
     "prettier": "^3.1.1",
+    "jquery": "^3.6.0",
+    "node-fetch": "^3.2.6",
+    "sass": "^1.54.9",
+    "sass-loader": "^13.0.2",
     "style-loader": "^3.3.4",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.11.0"
   }
 }

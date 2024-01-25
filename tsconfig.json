@@ -4,7 +4,36 @@
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
-    "allowJs": true
+    "allowJs": true,
+    "lib": ["es2019", "dom"],
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "outDir": "./tsDist/",
+    "experimentalDecorators": true,
+    "baseUrl": "app",
+    "importHelpers": true,
+
+    "paths": {
+      "@services/*": [
+        "services/*"
+      ],
+      "@rest/*": [
+        "services/rest/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@myCss": [
+        "assets/styles/main.scss"
+      ]
+    }
   },
-  "files": ["./app/index.ts"]
+
+  "include": [
+    "./**/*"
+  ],
+
+  "exclude": [
+    "node_modules"
+  ],
 }
