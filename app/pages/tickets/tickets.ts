@@ -1,13 +1,14 @@
+import { IUser } from './../../models/user/iuser';
 import {getTicketById, postTicketData} from "@rest/tickets";
 import '@myCss'; // добавлена новая ссылка - ссылка ведет на один файл
 import '@assets/styles/tickets.scss'
 import {initTicketElementTemplate} from "../../templates/ticketInfo";
-import {IVipTicket, TicketType, ITicket} from "../../models/ticket/ticket";
+import {IVipTicket, TicketType, ITicket} from "../../models/tickets/iticket";
 import {initFooterTitle, initHeaderTitle} from "@services/general/general";
-
+type SSObj = {[key: string]: string};
 
 let ticketInstance: TicketType ;
-let ticketPostInstance;
+let ticketPostInstance:any;
 const clientType = "custom";
 
 
@@ -45,32 +46,37 @@ function initTicketInfo(ticket: TicketType | IVipTicket) {
 
 
     const ticketElemsArr: [string, string, string] = [ticketDescription, ticketOperator, vipClientType];
-    let ticketElemTemplate;
+    let ticketElemTemplate: string;
 
-    ticketElemsArr.forEach((el, i) => {
+    ticketElemsArr.forEach((el: string, i: number) => {
         ticketElemTemplate+= initTicketElementTemplate(el, i);
     });
 
     targetElement.innerHTML = ticketElemTemplate;
 
 }
-
-function initUserData() {
-const userInfo = document.querySelectorAll('.user-info > p');
-let userInfoObj;
+type IUserIndex = 'name' | 'cardNumber' | 'birthDate';
+function initUserData():IUser {
+    const userInfo = document.querySelectorAll('.user-info > p');
+    let userInfoObj:IUser = <IUser>{};
+    
     userInfo.forEach((el) => {
-    const inputDataName = el.getAttribute('data-name');
-    if (inputDataName) {
-        const inputElems = el.querySelector('input');
-        userInfoObj[inputDataName] = inputElems.value;
-    }
+        const inputDataName:keyof IUser = <keyof IUser>el.getAttribute('data-name');
+        if (inputDataName) {
+            const inputElems = el.querySelector('input');
+            if (inputDataName === 'birthDate'){
+                userInfoObj.birthDate = new Date(inputElems.value);
+            }else{
+                userInfoObj[inputDataName] = inputElems.value;
+            }
+        }
     });
 
     console.log('userInfoObj',userInfoObj)
-    return userInfoObj;
+    return <IUser>userInfoObj;
 }
 
-function initPostData(data) {
+function initPostData(data:any) {
     initUserData();
     postTicketData(data).then((data) => {
         if (data.success) {

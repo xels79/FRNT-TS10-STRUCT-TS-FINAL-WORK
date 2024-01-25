@@ -1,4 +1,4 @@
-function importAll(r) {
+function importAll(r:any) {
     return r.keys().map(r);
 }
 /*- для того чтобы свойство context распозналось Typescript надо установить дополнительно типы (npm i  @types/webpack-env)

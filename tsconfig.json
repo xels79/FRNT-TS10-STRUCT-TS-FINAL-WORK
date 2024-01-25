@@ -2,12 +2,12 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
+    "module": "NodeNext",
+    "target": "ES2020",
     "allowJs": true,
-    "lib": ["es2019", "dom"],
+    "lib": ["ES2020", "DOM"],
     "sourceMap": true,
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "outDir": "./tsDist/",
     "experimentalDecorators": true,
     "baseUrl": "app",
@@ -25,6 +25,9 @@
       ],
       "@myCss": [
         "assets/styles/main.scss"
+      ],
+      "@classes/*": [
+        "classess/*"
       ]
     }
   },

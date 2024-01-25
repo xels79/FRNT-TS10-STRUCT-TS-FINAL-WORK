@@ -1,4 +1,4 @@
-import IUser from '../user/iuser.js';
+import {IUser} from '../user/iuser.js';
 export interface ITicket {
     // id?: string,
     description: string,
