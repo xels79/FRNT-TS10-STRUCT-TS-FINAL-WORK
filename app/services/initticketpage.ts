@@ -1,6 +1,6 @@
-import { IUser } from './../models/user/iuser';
+import {IUser} from '@models/user/iuser';
 import {initTicketElementTemplate} from "../templates/ticketInfo";
-import {IVipTicket, TicketType, ITicket} from "../models/tickets/iticket";
+import {IVipTicket, TicketType, ITicket} from "@models/tickets/iticket";
 import {postTicketData} from "@rest/tickets";
 let ticketPostInstance:any;
 

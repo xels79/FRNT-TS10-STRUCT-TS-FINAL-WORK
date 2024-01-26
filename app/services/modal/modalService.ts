@@ -1,4 +1,4 @@
-import {Modal} from "../../classess/modal";
+import {Modal} from "@classess/modal";
 import {toursDataArray} from "../../index"; // ссылка на массив с данными
 
 // Определить типы для метода (возвращающие и для переменных в теле функции)
