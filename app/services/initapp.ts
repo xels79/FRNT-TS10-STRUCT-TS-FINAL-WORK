@@ -1,3 +1,4 @@
+
 import {ITours} from "../models/tours/itours";
 import {getTourTemplate} from "../templates/tours";
 import {openModal} from "@services/modal/modalService";

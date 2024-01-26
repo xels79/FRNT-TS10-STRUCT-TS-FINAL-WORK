@@ -75,6 +75,8 @@ const config = {
             '@services': path.resolve(__dirname, './app/services/'),
             '@assets': path.resolve(__dirname, './app/assets/'),
             "@myCss":  path.resolve(__dirname, './app/assets/styles/main.scss'),
+            "@models": path.resolve(__dirname, './app/models/'),
+            "@classess": path.resolve(__dirname, './app/classess/'),
         },
 
         extensions: ['.tsx', '.ts', '.js', '.scss', '.css'],

@@ -22,6 +22,7 @@
     "@tsconfig/node16": "^1.0.3"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
     "@types/webpack-env": "^1.18.4",
     "@webpack-cli/generators": "^3.0.7",
     "autoprefixer": "^10.4.16",

@@ -26,8 +26,11 @@
       "@myCss": [
         "assets/styles/main.scss"
       ],
-      "@classes/*": [
+      "@classess/*": [
         "classess/*"
+      ],
+      "@models/*": [
+        "models/*"
       ]
     }
   },

@@ -1,7 +1,7 @@
 export class Modal {
     public static modals: Modal[] = [];  // массив всех экземпляров класса Modal;
     public static idCounter = 0;
-    private domEL: Element;
+    private domEL: HTMLElement;
     private isOpened:boolean = false;
     constructor(id: string){
         this.domEL = document.createElement('div');
@@ -28,6 +28,9 @@ export class Modal {
             this.isOpened = false;
         }
     };
+    public getDOM():HTMLElement{
+        return this.domEL;
+    }
     public static removeById(id: string | undefined): void{
         if (id){
             const el = Modal.findById(id);

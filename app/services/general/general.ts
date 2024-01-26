@@ -4,7 +4,7 @@
 /*  -
     - Указать в методах возвращающие типы, типы для параметров, в теле функции также указать типы
 */
-export function initHeaderTitle(ticketName: string, selector: string) {
+export function initHeaderTitle(ticketName: string, selector: string):void {
     const headerElement= document.querySelector('header');
     const targetItem: HTMLElement = headerElement.querySelector(selector);
     if (targetItem) {
@@ -12,7 +12,7 @@ export function initHeaderTitle(ticketName: string, selector: string) {
     }
 }
 
-export function initFooterTitle(ticketName: string, selector: string) {
+export function initFooterTitle(ticketName: string, selector: string):void {
     const headerElement = document.querySelector('footer');
     const targetItem: HTMLElement = headerElement.querySelector(selector);
     if (targetItem) {
