@@ -2,7 +2,7 @@
 ### Финал
 
 - [x] Ветка `"main"` - проба диалога (Задание2)
-- [x] Ветка `""` - итоговое задание.
+- [x] Ветка `"Task-2-or-final"` - итоговое задание.
 
 [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en)
