@@ -2,7 +2,7 @@ import {Modal} from "@classess/modal";
 import {toursDataArray} from "../../index"; // ссылка на массив с данными
 
 // Определить типы для метода (возвращающие и для переменных в теле функции)
-export function openModal(type: string, i: number) {
+export function openModal(type: string, i: number):void {
 
     const data = toursDataArray[i];
     const tourId = data?.id;
@@ -34,21 +34,21 @@ export function openModal(type: string, i: number) {
     }
 }
 let isBlinking = false;
-function closeButtonClick(e:PointerEvent){
+function closeButtonClick(e:PointerEvent):void {
     const a:HTMLElement = <HTMLElement>e.target;
     a.removeEventListener('click', closeButtonClick);
     a.parentNode.parentNode.removeEventListener('click',dialogPreventClick);
     a.parentNode.parentNode.parentNode.removeEventListener('click', dialogClick);
     Modal.removeById(a.getAttribute("data-moda-id"));
 }
-function dialogPreventClick(e:PointerEvent){
+function dialogPreventClick(e:PointerEvent):void{
     const target = <HTMLElement>e.target;
     if (target.tagName!=="A"){
         e.preventDefault();
         e.stopPropagation();
     }
 }
-function dialogClick(e:PointerEvent){
+function dialogClick(e:PointerEvent):void{
     if (!isBlinking){
         blink(<HTMLElement>((<HTMLElement>e.target).firstElementChild));
     }

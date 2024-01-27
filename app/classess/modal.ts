@@ -22,7 +22,7 @@ export class Modal {
             this.isOpened = true;
         }
     };
-    public remove(){
+    public remove():void{
         if ( this.isOpened ){
             this.domEL.remove();
             this.isOpened = false;
